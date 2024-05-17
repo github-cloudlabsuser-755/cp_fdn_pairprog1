@@ -1,4 +1,4 @@
-// create web server
+// Create web server
 // express is a web framework for node.js
 const express = require('express')
 const app = express()
