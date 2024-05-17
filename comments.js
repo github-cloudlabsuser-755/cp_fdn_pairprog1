@@ -1,35 +1,17 @@
-//create web server and listen on port 3000
-const express = require('express');
-const app = express();
-const port = 3000;
+// create web server with Express
+const express = require('express')
+const app = express()
+const port = 3000
 
-// import comments.js
-const comments = require('./comments.js');
+// serve static files
+app.use(express.static('public'))
 
-// when user access the root of the website
-app.get('/', (req, res) => {
-    res.send('Welcome to our website!');
-});
-
-// when user access the /comments route
+// create a route to handle comments
 app.get('/comments', (req, res) => {
-    res.json(comments);
-});
-
-// when user access the /comments/:id route
-app.get('/comments/:id', (req, res) => {
-    const id = req.params.id;
-    const comment = comments.find((comment) => comment.id === parseInt(id));
-    res.json(comment);
-});
+  res.send('Comments will go here!')
+})
 
 // start the server
 app.listen(port, () => {
-    console.log(`Server started on http://localhost:${port}`);
-});
-
-// Path: comments.js
-//create a list of comments
-module.exports = [
-    {
-        id: 1,
+  console.log(`Server is running at http://localhost:${port}`)
+})
