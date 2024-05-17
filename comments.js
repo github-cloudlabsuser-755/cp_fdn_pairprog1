@@ -1,17 +1,15 @@
-// create web server with Express
+// create web server
+// express is a web framework for node.js
 const express = require('express')
 const app = express()
-const port = 3000
 
-// serve static files
-app.use(express.static('public'))
-
-// create a route to handle comments
-app.get('/comments', (req, res) => {
-  res.send('Comments will go here!')
+// create a route for the app
+// GET request to the root URL
+app.get('/', (req, res) => {
+  res.send('Hello World')
 })
 
 // start the server
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`)
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000')
 })
